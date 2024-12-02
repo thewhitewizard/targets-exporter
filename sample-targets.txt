@@ -1,0 +1,2 @@
+bitcoin=150000
+ethereum=10000
