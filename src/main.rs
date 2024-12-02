@@ -44,15 +44,11 @@ fn generate_metrics_output(cryptos: &[Crypto]) -> String {
     let mut metrics_output = String::new();
     for crypto in cryptos {
         metrics_output.push_str(&format!(
-            "# HELP cryptocurrency_price_target Target price for {}\n\
-             # TYPE cryptocurrency_price_target gauge\n\
-             cryptocurrency_price_target{{token=\"{}\"}} {}\n",
-            crypto.name, crypto.name, crypto.target
-        ));
-        metrics_output.push_str(&format!(
-            "cryptocurrency_price_target_tp1{{token=\"{}\"}} {}\n\
-             cryptocurrency_price_target_tp2{{token=\"{}\"}} {}\n\
-             cryptocurrency_price_target_tp3{{token=\"{}\"}} {}\n",
+            "cryptocurrency_price_target_usd{{token=\"{}\"}} {}\n\
+             cryptocurrency_price_target_tp1_usd{{token=\"{}\"}} {}\n\
+             cryptocurrency_price_target_tp2_usd{{token=\"{}\"}} {}\n\
+             cryptocurrency_price_target_tp3_usd{{token=\"{}\"}} {}\n",            
+            crypto.name, crypto.target,
             crypto.name, crypto.tp1,
             crypto.name, crypto.tp2,
             crypto.name, crypto.tp3
